@@ -11,8 +11,6 @@ COPY --chown=oracle:oinstall installApex.sh ./installApex.sh
 RUN mkdir $ORACLE_BASE/patches && \
 	chmod +x ./entrypoint.sh && \
 	chmod +x ./installApex.sh && \
-	chmod +x ./patchOracle.sh && \
-	mv patchOracle.sh /opt/oracle/scripts/setup/01_patchOracle.sh && \
 	mv installApex.sh /opt/oracle/scripts/setup/02_installApex.sh
 
 VOLUME ["$ORACLE_BASE/patches"]
