@@ -53,6 +53,7 @@ connect / as sysdba
 alter session set container = $ORACLE_PDB;
 alter user apex_public_user identified by $ORACLE_PWD account unlock;
 @apex_rest_config_core.sql $ORACLE_PWD $ORACLE_PWD
+alter session set current_schema = APEX_050100;
 declare
     c_old_sgid constant number := wwv_flow_security.g_security_group_id;
     c_old_user constant varchar2(255) := wwv_flow_security.g_user;
@@ -65,7 +66,7 @@ declare
     end cleanup;
 begin
     wwv_flow_security.g_security_group_id := 10;
-    wwv_flow_security.g_user              := c_username;
+    wwv_flow_security.g_user              := 'ADMIN';
 
     wwv_flow_fnd_user_int.create_or_update_user( p_user_id  => NULL,
                                                  p_username => 'ADMIN',
