@@ -71,7 +71,7 @@ begin
     wwv_flow_fnd_user_int.create_or_update_user( p_user_id  => NULL,
                                                  p_username => 'ADMIN',
                                                  p_email    => NULL,
-                                                 p_password => $ORACLE_PWD );
+                                                 p_password => '$ORACLE_PWD' );
 
     commit;
     cleanup();
